@@ -7,12 +7,15 @@
     
     <Shell.TitleView>
         <Grid>
-            <Label Text="Catagorieen" FontSize="Large" HorizontalOptions="Center" VerticalOptions="Center" />
+            <Label Text="Categorieen" FontSize="Large" HorizontalOptions="Center" VerticalOptions="Center" />
         </Grid>
     </Shell.TitleView>
 
     <Border Stroke="#C49B33" StrokeThickness="4" Padding="10" Margin="10" HorizontalOptions="Center">
-        <CollectionView ItemsSource="{Binding Categories}" Margin="20" HorizontalOptions="Center">
+        <CollectionView ItemsSource="{Binding Categories}" Margin="20" HorizontalOptions="Center"
+                        SelectionMode="Single"
+                        SelectionChangedCommand="{Binding SelectCategoryCommand}"
+                        SelectionChangedCommandParameter="{Binding Source={RelativeSource Self}, Path=SelectedItem}">
             <CollectionView.ItemsLayout>
                 <LinearItemsLayout Orientation="Vertical" ItemSpacing="10" />
             </CollectionView.ItemsLayout>
@@ -26,7 +29,7 @@
                     <Label Text="Naam categorie" Grid.Column="1" FontAttributes="Bold"/>
                 </Grid>
             </CollectionView.Header>
-            <CollectionView.ItemTemplate>
+            <CollectionView.ItemTemplate x:DataType="m:Category">
                 <DataTemplate>
                     <Grid>
                         <Grid.ColumnDefinitions>
