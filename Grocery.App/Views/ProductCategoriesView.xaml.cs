@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace Grocery.App.Views
 {
-    public class CategoriesView
+    public class ProductCategoriesView
     {
+
     }
 }

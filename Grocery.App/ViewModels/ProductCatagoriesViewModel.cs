@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Grocery.App.Views
+namespace Grocery.App.ViewModels
 {
-    public class CategoriesView
+    public class ProductCatagoriesViewModel
     {
+
     }
 }
