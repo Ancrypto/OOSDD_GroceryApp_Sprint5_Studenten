@@ -13,4 +13,39 @@
         </Grid>
     </Shell.TitleView>
 
+
+    <Border Stroke="#C49B33"
+    StrokeThickness="4"
+    Padding="10"
+    Margin="10"
+    HorizontalOptions="Center">
+        <CollectionView x:Name="GroceryListView" ItemsSource="{Binding ProductCategories}" HorizontalOptions="Center">
+            <CollectionView.ItemsLayout>
+                <LinearItemsLayout Orientation="Vertical" ItemSpacing="10" />
+            </CollectionView.ItemsLayout>
+            <CollectionView.Header>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="2*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Label Text="ID" Grid.Column="0" FontAttributes="Bold"/>
+                    <Label Text="Naam" Grid.Column="1" FontAttributes="Bold"/>
+                </Grid>
+            </CollectionView.Header>
+            <CollectionView.ItemTemplate>
+                <DataTemplate x:DataType="m:ProductCategory">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="2*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Label Grid.Column="0" Text="{Binding Id}"/>
+                        <Label Grid.Column="1" Text="{Binding Name}"/>
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </Border>
+
 </ContentPage>

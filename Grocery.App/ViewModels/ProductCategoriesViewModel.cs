@@ -20,12 +20,19 @@ namespace Grocery.App.ViewModels
             {
                 SetProperty(ref categoryId, value);
                 Category = _categoryService.Get(categoryId);
+                var allProducts = _productCategoryService.GetAll();
+                ProductCategories = new ObservableCollection<ProductCategory>(
+                    allProducts.Where(pc => pc.CategoryId == Category.Id)
+                );
             }
         }
 
 
         [ObservableProperty]
         private Category category;
+
+        [ObservableProperty]
+        private ObservableCollection<ProductCategory> productCategories;
 
         public ProductCategoriesViewModel(IProductCategoryService productCategoryService, ICategoryService categoryService)
         {
