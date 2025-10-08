@@ -16,18 +16,21 @@ namespace Grocery.App.ViewModels
         public int CategoryId
         {
             get => categoryId;
-            set => SetProperty(ref categoryId, value);
+            set
+            {
+                SetProperty(ref categoryId, value);
+                Category = _categoryService.Get(categoryId);
+            }
         }
-        
+
 
         [ObservableProperty]
-        Category? category;
+        private Category category;
 
         public ProductCategoriesViewModel(IProductCategoryService productCategoryService, ICategoryService categoryService)
         {
             _productCategoryService = productCategoryService;
             _categoryService = categoryService;
-            System.Diagnostics.Debug.WriteLine("NO CRASH");
         }
     }
 }

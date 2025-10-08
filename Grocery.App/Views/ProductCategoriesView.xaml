@@ -9,7 +9,7 @@
 
     <Shell.TitleView>
         <Grid>
-            <Label Text="TEST" FontSize="Large" HorizontalOptions="Center" VerticalOptions="Center" />
+            <Label Text="{Binding Category.Name}" FontSize="Large" HorizontalOptions="Center" VerticalOptions="Center" />
         </Grid>
     </Shell.TitleView>
 
